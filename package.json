@@ -1,0 +1,24 @@
+{
+  "name": "practica-lectura-nodejs",
+  "version": "22.18.0",
+  "description": "practica-de-lectura-de-archivos",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomas-Ezequiel-Groppo/Proyecto_TIC--3ero-_-Practica-.git"
+  },
+  "author": "Tomas-Ezequiel-Groppo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tomas-Ezequiel-Groppo/Proyecto_TIC--3ero-_-Practica-/issues"
+  },
+  "homepage": "https://github.com/Tomas-Ezequiel-Groppo/Proyecto_TIC--3ero-_-Practica-#readme",
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  }
+}
