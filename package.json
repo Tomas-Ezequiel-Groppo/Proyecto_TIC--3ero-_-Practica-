@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Tomas-Ezequiel-Groppo/Proyecto_TIC--3ero-_-Practica-#readme",
   "devDependencies": {
     "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
 }
