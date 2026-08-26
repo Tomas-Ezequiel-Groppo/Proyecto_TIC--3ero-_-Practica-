@@ -14,15 +14,25 @@ let perfil2 : Profile = {
 
 let perfiles : Profile[] = [];
 
-let n : string = "hola"
-let m : string = "HolaMundo"
-let o : number = 24
+let n : string = "hola";
+let m : string = "HolaMundo";
+let o : number = 24;
 
-perfiles.push(perfil1)
+perfiles.push(perfil1);
+perfiles.push(perfil2);
 
 let perfil3 : Profile = {
     username: n,
     password: m,
     profileID: o,
 }
+let perfil4  : Profile = {
+    username : "oirgneoiadngroirdsn",
+    password : "oerfbesnpobgivesoioerrbveoiu",
+    profileID : 25,
+}
+
+console.log(perfiles);
+console.log(perfil3);
+console.log(perfil4.profileID);
 
