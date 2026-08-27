@@ -1,7 +1,7 @@
-{
-    "perfil1":{"username":"xXJuanelcrackXx" , "password":"odioatodos:)" , "profileID":12},
-    "perfil2":{"username":"Miguelprogamer235215" , "password":"The_special_one" , "profileID":23},
-    "perfil3":{"username":"hola" , "password" : "HolaMundo" , "profileID" : 24},
-    "perfil4":{"username":"oirgneoiadngroirdsn" , "password" : "oerfbesnpobgivesoioerrbveoiu" , "profileID":25}
+[
+    {"username":"xXJuanelcrackXx" , "password":"odioatodos:)" , "profileID":12},
+    {"username":"Miguelprogamer235215" , "password":"The_special_one" , "profileID":23},
+    {"username":"hola" , "password" : "HolaMundo" , "profileID" : 24},
+    {"username":"oirgneoiadngroirdsn" , "password" : "oerfbesnpobgivesoioerrbveoiu" , "profileID":25}
     
-}
+]

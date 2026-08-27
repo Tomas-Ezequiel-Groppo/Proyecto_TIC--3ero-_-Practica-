@@ -39,10 +39,32 @@ let perfil4  : Profile = {
     password : "oerfbesnpobgivesoioerrbveoiu",
     profileID : 25,
 }
+let perfil5 : Profile = {
+    username : "Ernesto",
+    password: "amimgoDeInsomniac",
+    profileID : 27,
+}
 
 console.log(jsontxtcompleto);
 console.log(jsonjsoncompleto);
 
-console.log(jsonjsoncompleto[1])
+let a : number = 0;
+
+while (a<jsonjsoncompleto.length){
+    console.log(jsonjsoncompleto[a]?.username);
+    a++;
+}
+
+jsonjsoncompleto.push(perfil5);
+
+a=0;
+
+console.log("------------------------------");
+
+while (a<jsonjsoncompleto.length){
+    console.log(jsonjsoncompleto[a]?.username);
+    a++;
+}
+
 
 
