@@ -2,6 +2,7 @@ import fs from 'fs'
 
 const jsontxtcompleto : string = fs.readFileSync("src/main.json", "utf-8");
 const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
+const archivojson = 'src/main.json';
 
 
 
@@ -55,7 +56,10 @@ while (a<jsonjsoncompleto.length){
     a++;
 }
 
-jsonjsoncompleto.push(perfil5);
+jsonjsoncompleto.push(perfil5)
+
+let jsonnuevo = JSON.stringify(jsonjsoncompleto, null, 1);
+fs.writeFileSync(archivojson, jsonnuevo);
 
 a=0;
 
@@ -65,6 +69,23 @@ while (a<jsonjsoncompleto.length){
     console.log(jsonjsoncompleto[a]?.username);
     a++;
 }
+console.log("------------------------------");
 
+console.log(jsonjsoncompleto.find((item) => item.profileID===27)?.username)
+
+let newProfileList = jsonjsoncompleto.filter((item) => item.profileID !==27);
+
+jsonnuevo= JSON.stringify(newProfileList, null, 1);
+
+fs.writeFileSync(archivojson, jsonnuevo);
+
+console.log("------------------------------");
+
+a=0;
+
+while (a<newProfileList.length){
+    console.log(newProfileList[a]?.username);
+    a++;
+}
 
 
