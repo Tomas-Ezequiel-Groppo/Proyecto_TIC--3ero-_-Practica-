@@ -1,3 +1,11 @@
+import fs from 'fs'
+
+const jsontxtcompleto : string = fs.readFileSync("src/main.json", "utf-8");
+const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
+
+
+
+
 type Profile = {username:string ; password:string ; profileID:number};
 
 let perfil1 : Profile = {
@@ -32,7 +40,9 @@ let perfil4  : Profile = {
     profileID : 25,
 }
 
-console.log(perfiles);
-console.log(perfil3);
-console.log(perfil4.profileID);
+console.log(jsontxtcompleto);
+console.log(jsonjsoncompleto);
+
+console.log(jsonjsoncompleto[1])
+
 
