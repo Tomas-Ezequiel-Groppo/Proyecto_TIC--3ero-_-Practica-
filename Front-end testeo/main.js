@@ -1,3 +1,9 @@
+const express = require('express');
+const app= express()
+const puerto=5237;
+
+app.use(express.json());
+
 let profileID=0;
 
 button.addEventListener("click",() => {
@@ -19,3 +25,6 @@ button.addEventListener("click",() => {
     }
 })
 
+app.listen(puerto, () =>{
+    console.log("Todo bien. El testeo está en posición de arrancar");
+});
