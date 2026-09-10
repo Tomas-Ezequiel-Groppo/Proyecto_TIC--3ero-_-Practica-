@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "html":"npx serve FrontTesteo",
-    "start": "concurrently \"npm run html\" tsx src/index.ts"
+    "html": "node FrontTesteo/main.js",
+    "back": "tsx src/index.ts",
+    "start": "concurrently \"npm run html\" \"npm run back\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@types/node": "^26.2.0",
     "concurrently": "^10.0.5",
     "express": "^5.2.1",
+    "serve": "^14.2.6",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
