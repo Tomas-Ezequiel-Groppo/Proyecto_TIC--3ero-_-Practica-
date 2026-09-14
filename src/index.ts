@@ -1,4 +1,9 @@
 import fs from 'fs'
+import express from 'express'
+import { readFile } from 'fs/promises'
+
+const app= express()
+const puerto=5237;
 
 const jsontxtcompleto : string = fs.readFileSync("src/main.json", "utf-8");
 const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
@@ -87,5 +92,20 @@ while (a<newProfileList.length){
     console.log(newProfileList[a]?.username);
     a++;
 }
+
+app.use(express.json());
+app.get("/", (req, res) =>{
+    readFile(new URL('../src/main.json', import.meta.url), 'utf-8')
+        .then(data => res.json(JSON.parse(data)))
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: "No se pudo leer el archivo" });
+        });
+
+})
+
+app.listen(puerto, () =>{
+    console.log("Todo bien. El testeo está en posición de arrancar");
+});
 
 

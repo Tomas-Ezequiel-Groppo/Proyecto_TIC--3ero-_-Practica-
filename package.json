@@ -7,8 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "html": "node FrontTesteo/main.js",
+    "js": "node FrontTesteo/index.html",
+    "front": "concurrently \"npm run html\" \"npm run js\"",
     "back": "tsx src/index.ts",
-    "start": "concurrently \"npm run html\" \"npm run back\""
+    "start": "concurrently \"npm run front\" \"npm run back\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/Tomas-Ezequiel-Groppo/Proyecto_TIC--3ero-_-Practica-#readme",
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^26.2.0",
     "concurrently": "^10.0.5",
     "express": "^5.2.1",
