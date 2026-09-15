@@ -6,11 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "html": "node FrontTesteo/main.js",
-    "js": "node FrontTesteo/index.html",
-    "front": "concurrently \"npm run html\" \"npm run js\"",
-    "back": "tsx src/index.ts",
-    "start": "concurrently \"npm run front\" \"npm run back\""
+    "start": "tsx src/index.ts"
   },
   "repository": {
     "type": "git",
