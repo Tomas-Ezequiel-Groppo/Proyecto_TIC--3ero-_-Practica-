@@ -11,10 +11,8 @@ const jsontxtcompleto : string = fs.readFileSync("src/main.json", "utf-8");
 const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
 const archivojson = 'src/main.json';
 
-app.get("/" , (req, res)=>{
-   const datosog = jsontxtcompleto
-   res.json(jsonjsoncompleto);
-});
+
+
 
 
 type Profile = {username:string ; password:string ; profileID:number};
@@ -97,6 +95,19 @@ while (a<newProfileList.length){
     console.log(newProfileList[a]?.username);
     a++;
 }
+app.post("/saveProfile", (req,res) =>{
+    const newProfile:Profile={
+        username:req.body.username,
+        password:req.body.password,
+        profileID:req.body.profileID,
+    }
+    console.log(req.body.idd);
+    let jsonnuevofun : string ="";
+
+    jsonjsoncompleto.push(newProfile);
+    jsonnuevofun=JSON.stringify(jsonjsoncompleto);
+    fs.writeFileSync(archivojson,jsonnuevofun);
+});
 app.listen(puerto,()=>{
  console.log("Todo bien, arrancando servidor");
 });
