@@ -19,3 +19,9 @@ button.addEventListener("click" ,() => {
   }) 
   
 });
+buttonL.addEventListener("click" ,() => {
+  console.log("Gente")
+  let n=0;
+
+  
+});
