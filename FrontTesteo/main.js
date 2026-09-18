@@ -1,5 +1,4 @@
 console.log("Hola")
-console.log(idd.value)
 function profilesave(user){
     return fetch("/saveProfile" , {
         method:"POST",
@@ -14,7 +13,6 @@ button.addEventListener("click" ,() => {
   const nuevoUsuario = {
     username:username.value,
     password:password.value,
-    profileID: Number(idd.value)
   }
   profilesave(nuevoUsuario).then(()=>{
     alert("perfil guardado")

@@ -99,9 +99,8 @@ app.post("/saveProfile", (req,res) =>{
     const newProfile:Profile={
         username:req.body.username,
         password:req.body.password,
-        profileID:req.body.profileID,
+        profileID:jsonjsoncompleto.length+1,
     }
-    console.log(req.body.idd);
     let jsonnuevofun : string ="";
 
     jsonjsoncompleto.push(newProfile);
