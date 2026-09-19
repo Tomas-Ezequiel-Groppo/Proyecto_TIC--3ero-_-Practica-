@@ -1,18 +1,18 @@
 import fs from 'fs'
 import express from 'express'
-import { readFile } from 'fs/promises'
 
 const app= express()
 const puerto=5237;
 app.use(express.json());
 app.use(express.static('FrontTesteo'));
 
-const jsontxtcompleto : string = fs.readFileSync("src/main.json", "utf-8");
-const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
 const archivojson = 'src/main.json';
+const jsontxtcompleto : string = fs.readFileSync(archivojson, "utf-8");
+const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
 
 
 
+const idd:number= jsonjsoncompleto.length+1
 
 
 type Profile = {username:string ; password:string ; profileID:number};
@@ -20,20 +20,20 @@ type Profile = {username:string ; password:string ; profileID:number};
 let perfil1 : Profile = {
     username: "xXJuanelcrackXx",
     password : "odioatodos",
-    profileID : 12,
+    profileID : 1,
 }
 
 let perfil2 : Profile = {
     username: "Miguelprogamer235215",
     password : "The_special_one",
-    profileID : 23,
+    profileID : 2,
 }
 
 let perfiles : Profile[] = [];
 
 let n : string = "hola";
 let m : string = "HolaMundo";
-let o : number = 24;
+let o : number = 3;
 
 perfiles.push(perfil1);
 perfiles.push(perfil2);
@@ -46,12 +46,12 @@ let perfil3 : Profile = {
 let perfil4  : Profile = {
     username : "oirgneoiadngroirdsn",
     password : "oerfbesnpobgivesoioerrbveoiu",
-    profileID : 25,
+    profileID : 4,
 }
 let perfil5 : Profile = {
     username : "Ernesto",
     password: "amimgoDeInsomniac",
-    profileID : 27,
+    profileID : idd,
 }
 
 console.log(jsontxtcompleto);
@@ -79,9 +79,9 @@ while (a<jsonjsoncompleto.length){
 }
 console.log("------------------------------");
 
-console.log(jsonjsoncompleto.find((item) => item.profileID===27)?.username)
+console.log(jsonjsoncompleto.find((item) => item.profileID===5)?.username)
 
-let newProfileList = jsonjsoncompleto.filter((item) => item.profileID !==27);
+let newProfileList = jsonjsoncompleto.filter((item) => item.profileID !==5);
 
 jsonnuevo= JSON.stringify(newProfileList, null, 1);
 
@@ -96,6 +96,23 @@ while (a<newProfileList.length){
     a++;
 }
 app.post("/saveProfile", (req,res) =>{
+    
+    let n:number=0;
+    let yaExiste:boolean=false;
+
+    while (n<jsonjsoncompleto.length){
+        if (req.body.username===jsonjsoncompleto[n]!.username){
+            yaExiste=true
+            n=jsonjsoncompleto.length;
+        }
+        else{
+            n++;
+        }
+    }
+    if (yaExiste===true){
+     res.status(409).json({error:"Perfil_Preexistente"})
+    }
+    else{
     const newProfile:Profile={
         username:req.body.username,
         password:req.body.password,
@@ -104,9 +121,49 @@ app.post("/saveProfile", (req,res) =>{
     let jsonnuevofun : string ="";
 
     jsonjsoncompleto.push(newProfile);
-    jsonnuevofun=JSON.stringify(jsonjsoncompleto);
+    jsonnuevofun=JSON.stringify(jsonjsoncompleto, null, 1);
     fs.writeFileSync(archivojson,jsonnuevofun);
+    res.json({estado:"Perfil-guardado"})
+}
 });
+
+app.post("/logProfile", (req, res)=>{
+    let logProfile:Profile={
+        username:req.body.username,
+        password:req.body.password,
+        profileID:1,
+    }
+let n:number=0;
+let existeElUsername:boolean=false;
+let correctProfile: Profile | undefined;
+
+while (n<jsonjsoncompleto.length){
+    if (logProfile.username===jsonjsoncompleto[n]!.username){
+        existeElUsername=true;
+        correctProfile=jsonjsoncompleto[n]
+        n=jsonjsoncompleto.length;
+    }
+    else{
+        existeElUsername===false;
+        n++;
+    }
+}
+    if (existeElUsername===true){
+     if (logProfile.password===correctProfile?.password){
+         res.json({entrada:"Todo"})
+         res.status(200)
+     }
+     else{
+         res.json({entrada:"ContraIncorrecta"})
+         res.status(401)
+     }
+    }
+    else{
+        res.json({entrada:"TodoMal"})
+        res.status(404)
+    }
+});
+
 app.listen(puerto,()=>{
  console.log("Todo bien, arrancando servidor");
 });
