@@ -5,3 +5,5 @@ El README previo quedó bastante viejo. fs.readFileSync y fs.writeFileSync son c
 En el commit actual, ya hay un sistema completo de logeo utilizando JSONs y un front-end improvisado. 
 
 Tardó y costó, pero la función del repositorio en su creación se cumplió. Ya se pueden leer y escribir archivos JSONs de forma permanente y hay comunicación estable entre el front-end y el back-end.
+
+Correr npm run start en la terminal para inizializar el programa. Se utiliza el puerto 5237.
